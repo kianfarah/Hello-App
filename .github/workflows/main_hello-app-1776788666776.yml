@@ -70,13 +70,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Wait for App to wake up
-        run: sleep 30 # Give Azure a moment to swap the jars
+        run: sleep 30
       - name: Check Health Endpoint
         run: |
-          status_code=$(curl -s -o /dev/null -w "%{http_code}" https://azurewebsites.net)
+          # Use your EXACT URL here
+          status_code=$(curl -s -o /dev/null -w "%{http_code}" https://hello-app-1776788666776.azurewebsites.net)
           if [ "$status_code" -ne 200 ]; then
             echo "Health check failed with status $status_code"
             exit 1
           else
-            echo "App is healthy!"
+            echo "App is healthy! Status: $status_code"
           fi
