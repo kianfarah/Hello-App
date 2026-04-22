@@ -74,7 +74,7 @@ jobs:
       - name: Check Health Endpoint
         run: |
           # The closing parenthesis ) after the URL is mandatory!
-          status_code=$(curl -s -o /dev/null -w "%{http_code}" "https://azurewebsites.net")
+          status_code=$(curl -s -o /dev/null -w "%{http_code}" "https://hello-app-1776788666776.azurewebsites.net")
           
           if [ "$status_code" -ne 200 ]; then
             echo "Health check failed with status $status_code"
