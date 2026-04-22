@@ -7,3 +7,12 @@ spring:
     url: ${DB_URL}
     password: ${DB_PASSWORD}
     username: ${DB_USER}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: when_authorized
