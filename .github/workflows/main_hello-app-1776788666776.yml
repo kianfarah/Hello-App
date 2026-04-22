@@ -64,4 +64,19 @@ jobs:
           app-name: 'Hello-App-1776788666776'
           slot-name: 'Production'
           package: '*.jar'
-          
+
+  smoke-test:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for App to wake up
+        run: sleep 30 # Give Azure a moment to swap the jars
+      - name: Check Health Endpoint
+        run: |
+          status_code=$(curl -s -o /dev/null -w "%{http_code}" https://azurewebsites.net)
+          if [ "$status_code" -ne 200 ]; then
+            echo "Health check failed with status $status_code"
+            exit 1
+          else
+            echo "App is healthy!"
+          fi
