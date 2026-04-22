@@ -1,0 +1,9 @@
+##spring.application.name=Hello-App
+spring:
+  application:
+    name: Hello-App
+
+  datasource:
+    url: ${DB_URL}
+    password: ${DB_PASSWORD}
+    username: ${DB_USER}
