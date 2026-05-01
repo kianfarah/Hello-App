@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class AppConfig {
 
-    @Bean
-    @Conditional(OnWeekendCondition.class)
-    public GreetingServiceImpl greetingService() {
-        log.info("************i was here**********");
-        return new GreetingServiceImpl();
-    }
+  @Bean
+  @Conditional(OnWeekendCondition.class)
+  public GreetingServiceImpl greetingService() {
+    log.info("************i was here**********");
+    return new GreetingServiceImpl();
+  }
 }
