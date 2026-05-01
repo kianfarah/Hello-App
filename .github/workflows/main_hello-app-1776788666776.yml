@@ -25,7 +25,13 @@ jobs:
           distribution: 'microsoft'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: |
+          #manually create the git.properties file
+          mkdir -p target/classes
+          echo "git.commit.id.full=${{ github.sha }}" > target/classes/git.properties
+          echo "git.commit.time=$(date +'%Y-%m-%dT%H:%M:%S%z')" >> target/classes/git.properties
+          
+          mvn clean install
         env:
           DB_URL: ${{secrets.DB_URL}}
           DB_PASSWORD: ${{secrets.DB_PASSWORD}}
