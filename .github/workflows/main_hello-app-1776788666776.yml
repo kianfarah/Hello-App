@@ -64,7 +64,7 @@ jobs:
           app-name: 'Hello-App-1776788666776'
           slot-name: 'Production'
           package: '*.jar'
-          description: "Deployed from GitHub commit ${{ github.sha }}"
+
 
   smoke-test:
     needs: deploy

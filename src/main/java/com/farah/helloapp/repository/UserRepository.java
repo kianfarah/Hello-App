@@ -1,4 +1,4 @@
-package com.farah.helloapp;
+package com.farah.helloapp.repository;
 
 import com.farah.helloapp.entities.User;
 import org.springframework.data.repository.ListCrudRepository;

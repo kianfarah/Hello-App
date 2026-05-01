@@ -1,5 +1,6 @@
-package com.farah.helloapp;
+package com.farah.helloapp.controller;
 
+import com.farah.helloapp.repository.UserRepository;
 import com.farah.helloapp.entities.User;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
